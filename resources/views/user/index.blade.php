@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Test Kazee | User</title>
-</head>
-<body>
+@extends('layout.master')
+
+@section('title','User')
+
+@section('content')
 	<h1>Ini Halaman User</h1>
-</body>
-</html>
+@endsection
