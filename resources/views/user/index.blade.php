@@ -4,6 +4,6 @@
 	<title>Test Kazee | User</title>
 </head>
 <body>
-	Ini Halaman User
+	<h1>Ini Halaman User</h1>
 </body>
 </html>
