@@ -6,4 +6,6 @@
 	<h1>Ini halaman beranda</h1>
 	<h2>Test Coding PT. Kazee Digital Indonesia</h2>
 	<h3>Menggunakan Laravel dan GIT</h3>
+	<br>
+	<img src="{{asset('img/logo-kazee.jpg')}}" width="200px">
 @endsection
