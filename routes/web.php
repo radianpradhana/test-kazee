@@ -14,6 +14,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 //View
-Route::view('/', 'home');
-Route::view('/user', 'user.index');
-Route::view('/admin', 'admin.index');
+Route::view('/', 'welcome');
