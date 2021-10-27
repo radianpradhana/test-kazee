@@ -14,4 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 //View
-Route::view('/', 'welcome');
+Route::get('/', function () {
+	return view('beranda');
+});
