@@ -16,7 +16,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li><a href="/"><i class="fa fa-dashboard"></i> <span>Beranda</span></a></li>
+        <li class="{{ request()->is('/') ? 'active' : '' }}"><a href="/"><i class="fa fa-dashboard"></i> <span>Beranda</span></a></li>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-user"></i> <span>User</span>
@@ -25,7 +25,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/user"><i class="fa fa-circle-o"></i> Master Data</a></li>
+            <li class="{{ request()->is('/user') ? 'active' : '' }}"><a href="/user"><i class="fa fa-circle-o"></i> Master Data</a></li>
           </ul>
         </li>
       </ul>
