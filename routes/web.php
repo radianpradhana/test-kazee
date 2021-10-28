@@ -20,3 +20,8 @@ Route::get('/', function () {
 });
 
 Route::get('/user', [UserController::class,'index']);
+Route::get('/user/create', [UserController::class,'create']);
+Route::post('/user/create', [UserController::class,'store']);
+Route::get('/user/{id}/edit', [UserController::class,'edit']);
+Route::put('/user/{id}', [UserController::class,'update']);
+Route::delete('/user/{id}', [UserController::class,'destroy']);

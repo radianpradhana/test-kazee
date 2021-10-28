@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
+use App\Models\User;
+use App\Models\Position;
 
 class UserController extends Controller
 {
@@ -13,7 +16,13 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('user.index');
+
+        $judul = 'User';
+        $users = DB::table('users')
+                    ->select('users.*','positions.position')
+                    ->leftJoin('positions','users.id_position','=','positions.id')
+                    ->get();
+        return view('user.index', compact(['judul','users']));
     }
 
     /**
@@ -23,7 +32,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $judul = 'Tambah User';
+        $positions = Position::all();
+        return view('user.create', compact(['judul','positions']));
     }
 
     /**
@@ -35,6 +46,8 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
+        User::create($request->all());
+        return redirect('/user');
     }
 
     /**
@@ -56,7 +69,14 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $judul = 'Edit User';
+        $user  = DB::table('users')
+                    ->select('users.*','positions.position')
+                    ->leftJoin('positions','users.id_position','=','positions.id')
+                    ->where('users.id',$id)
+                    ->first();
+        $positions = Position::all();
+        return view('user.edit', compact(['judul','user','positions']));
     }
 
     /**
@@ -68,7 +88,10 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->update($request->all());
+        return redirect('/user');
+
     }
 
     /**
@@ -79,6 +102,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+        return redirect('/user');
+        
     }
 }
